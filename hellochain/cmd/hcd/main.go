@@ -3,21 +3,23 @@ package main
 import (
 	"github.com/tendermint/tendermint/libs/cli"
 
-	app "github.com/cosmos/sdk-tutorials/hellochain"
-	"github.com/cosmos/sdk-tutorials/hellochain/starter"
+	app "github.com/cosmos/hellochain"
+	"github.com/cosmos/hellochain/starter"
 )
 
-func main(){
+func main() {
+
 	params := starter.NewServerCommandParams(
 		"hcd",
 		"hellochain AppDaemon",
 		starter.NewAppCreator(app.NewHelloChainApp),
-		starter.NewAppExporter(app.NewHelloChainApp)
+		starter.NewAppExporter(app.NewHelloChainApp),
 	)
 
 	serverCmd := starter.NewServerCommand(params)
 
-	executor := cli.PrepareBaseCmd(ServerCmd, "HC", starter.DefaultNodeHome)
+	// prepare and add flags
+	executor := cli.PrepareBaseCmd(serverCmd, "HC", starter.DefaultNodeHome)
 	err := executor.Execute()
 	if err != nil {
 		panic(err)
