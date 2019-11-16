@@ -1,8 +1,8 @@
 package greeter
 
 import (
-	"github.com/cosmos/hellochain/x/greeter/internal/keeper"
-	"github.com/cosmos/hellochain/x/greeter/internal/types"
+	keeper "github.com/cosmos/sdk-tutorial/hellochain/x/greeter/internal/keeper"
+	types "github.com/cosmos/sdk-tutorial/hellochain/x/greeter/internal/types"
 )
 
 const (
